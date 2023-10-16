@@ -3,7 +3,7 @@ using UnityEngine;
 public class VectorExercises : MonoBehaviour
 {
     [SerializeField] LineFactory lineFactory;
-    [SerializeField] bool Q2a, Q2b, Q2d, Q2e;
+    [SerializeField] bool Q2a, Q2b, Q2c, Q2d, Q2e;
     [SerializeField] bool Q3a, Q3b, Q3c, projection;
 
     private Line drawnLine;
@@ -16,10 +16,16 @@ public class VectorExercises : MonoBehaviour
 
     private void Start()
     {
+        CalculateGameDimensions();
+
         if (Q2a)
             Question2a();
         if (Q2b)
             Question2b(20);
+
+        if (Q2c)
+            Question2c(20);
+
         if (Q2d)
             Question2d();
         if (Q2e)
@@ -36,7 +42,13 @@ public class VectorExercises : MonoBehaviour
 
     public void CalculateGameDimensions()
     {
+        GameHeight = Camera.main.orthographicSize * 2f;
+        GameWidth = Camera.main.aspect * GameHeight;
 
+        maxX = GameWidth / 2;
+        maxY = GameHeight / 2;
+        minX = -maxX;
+        minY = -maxY;
     }
 
     void Question2a()
@@ -58,6 +70,19 @@ public class VectorExercises : MonoBehaviour
         {
             Vector2 startPt = new Vector2(Random.Range(-5f, 5f), Random.Range(-5f, 5f));
             Vector2 endPt = new Vector2(Random.Range(-5f, 5f), Random.Range(-5f, 5f));
+
+            drawnLine = lineFactory.GetLine(startPt, endPt, 0.02f, Color.black);
+
+            drawnLine.EnableDrawing(true);
+        }
+    }
+
+    void Question2c(int n)
+    {
+        for (int i = 0; i < n; i++)
+        {
+            Vector2 startPt = new Vector2(Random.Range(-maxX, maxX), Random.Range(-maxY, maxY));
+            Vector2 endPt = new Vector2(Random.Range(-maxX, maxX), Random.Range(-maxY, maxY));
 
             drawnLine = lineFactory.GetLine(startPt, endPt, 0.02f, Color.black);
 
