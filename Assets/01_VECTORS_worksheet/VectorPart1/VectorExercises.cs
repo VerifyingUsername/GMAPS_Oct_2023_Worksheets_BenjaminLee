@@ -92,25 +92,22 @@ public class VectorExercises : MonoBehaviour
 
     void Question2d()
     {
-
+        DebugExtension.DebugArrow(new Vector3(0, 0, 0), new Vector3(5, 5, 0), Color.red, 60f); //60f = 60 seconds
     }
 
     void Question2e(int n)
     {
         for (int i = 0; i < n; i++)
         {
-            startPt = new Vector2(
-                Random.Range(-maxX, maxX), 
-                Random.Range(-maxY, maxY));
+            startPt = new Vector2(Random.Range(-maxX, maxX), Random.Range(-maxY, maxY));
+
 
             // Your code here
-            // ...
+            Vector2 endPt = new Vector2(Random.Range(-maxX, maxX), Random.Range(-maxY, maxY));
+            DebugExtension.DebugArrow(new Vector3(0, 0, 0), new Vector3(endPt.x, endPt.y, Random.Range(-maxY, maxY)), Color.white, 60f); // Reuse -maxY, maxY for Z Axis
 
-            //DebugExtension.DebugArrow(
-            //    new Vector3(0, 0, 0),
-            //    // Your code here,
-            //    Color.white,
-            //    60f);
+
+            
         }  
     }
 
