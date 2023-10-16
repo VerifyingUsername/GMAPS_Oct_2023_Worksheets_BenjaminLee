@@ -16,8 +16,6 @@ public class VectorExercises : MonoBehaviour
 
     private void Start()
     {
-        Q2a = true;
-
         if (Q2a)
             Question2a();
         if (Q2b)
@@ -43,7 +41,7 @@ public class VectorExercises : MonoBehaviour
 
     void Question2a()
     {
-        startPt = new Vector2(2, 2);
+        startPt = new Vector2(-1, -5);
         endPt = new Vector2(4, 5);
 
         drawnLine = lineFactory.GetLine(startPt, endPt, 0.02f, Color.black);
@@ -52,13 +50,19 @@ public class VectorExercises : MonoBehaviour
 
         Vector2 vec2 = endPt - startPt;
         Debug.Log("Magnitude = " + vec2.magnitude);
-
-        
     }
 
     void Question2b(int n)
     {
+        for (int i = 0; i < n; i ++)
+        {
+            Vector2 startPt = new Vector2(Random.Range(-5f, 5f), Random.Range(-5f, 5f));
+            Vector2 endPt = new Vector2(Random.Range(-5f, 5f), Random.Range(-5f, 5f));
 
+            drawnLine = lineFactory.GetLine(startPt, endPt, 0.02f, Color.black);
+
+            drawnLine.EnableDrawing(true);
+        }
     }
 
     void Question2d()
