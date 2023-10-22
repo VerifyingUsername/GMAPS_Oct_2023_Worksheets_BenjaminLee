@@ -9,6 +9,9 @@ public class HVector2D
     public float x, y;
     public float h;
 
+    //HVector2D vec1 = new HVector2D(5f, 3f);
+    //Vector2 vec2 = new Vector2(vec1.x, vec1.y);
+
     public HVector2D(float _x, float _y)
     {
         x = _x;
@@ -50,10 +53,10 @@ public class HVector2D
 
     // }
 
-    // public float Magnitude()
-    // {
-
-    // }
+    public float Magnitude()
+    {      
+        return Mathf.Sqrt(x * x + y * y);      
+    }
 
     // public void Normalize()
     // {
@@ -77,12 +80,15 @@ public class HVector2D
 
     public Vector2 ToUnityVector2()
     {
-        return Vector2.zero; // change this
+        return new Vector2(x, y);
+
+        //return Vector2.zero; // change this
     }
 
     public Vector3 ToUnityVector3()
     {
-        return Vector2.zero; // change this
+        return new Vector3(x, y, 0);
+        //return Vector2.zero; // change this
     }
 
     // public void Print()
