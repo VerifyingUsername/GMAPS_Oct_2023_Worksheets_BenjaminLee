@@ -145,7 +145,10 @@ public class VectorExercises : MonoBehaviour
     {
         // Your code here
         HVector2D a = new HVector2D(3, 5);
-        HVector2D b = new HVector2D(a.x * 2, a.y * 2);
+        //HVector2D b = new HVector2D(a.x * 2, a.y * 2);
+
+        //Q3b divide
+        HVector2D b = new HVector2D(a.x / 2, a.y / 2);
 
         DebugExtension.DebugArrow(Vector3.zero, a.ToUnityVector3(), Color.red, 60f);
         DebugExtension.DebugArrow(new Vector3(1, 0, 0), b.ToUnityVector3(), Color.green, 60f);
