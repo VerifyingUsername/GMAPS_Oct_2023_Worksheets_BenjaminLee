@@ -125,9 +125,14 @@ public class VectorExercises : MonoBehaviour
         // Your code here
         DebugExtension.DebugArrow(b.ToUnityVector3(), (b.ToUnityVector3() + c.ToUnityVector3()), Color.white, 60f);
 
+        // Q3a a minus b
+
+        DebugExtension.DebugArrow(a.ToUnityVector3(), (a.ToUnityVector3() - b.ToUnityVector3()), Color.yellow, 60f);
+        
+
         // Your code here
         float MagnitudeA = a.Magnitude();
-        Debug.Log("Magnitude of a = " + MagnitudeA.ToString("F2"));         // Your code here.ToString("F2"));
+        Debug.Log("Magnitude of a = " + MagnitudeA.ToString("F2"));   //F2 2 decimal point      // Your code here.ToString("F2"));
 
         float MagnitudeB = b.Magnitude();
         Debug.Log("Magnitude of b = " + MagnitudeB.ToString("F2"));
@@ -139,9 +144,11 @@ public class VectorExercises : MonoBehaviour
     public void Question3b()
     {
         // Your code here
-        // ...
+        HVector2D a = new HVector2D(3, 5);
+        HVector2D b = new HVector2D(a.x * 2, a.y * 2);
 
-        //DebugExtension.DebugArrow(Vector3.zero, a.ToUnityVector3(), Color.red, 60f);
+        DebugExtension.DebugArrow(Vector3.zero, a.ToUnityVector3(), Color.red, 60f);
+        DebugExtension.DebugArrow(new Vector3(1, 0, 0), b.ToUnityVector3(), Color.green, 60f);
         // Your code here
     }
 
