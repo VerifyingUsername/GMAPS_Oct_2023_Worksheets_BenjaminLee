@@ -33,35 +33,37 @@ public class HVector2D
         h = 1.0f;
     }
 
-    // public static HVector2D operator +( /*???*/)
-    // {
+    public static HVector2D operator +(HVector2D a ,HVector2D b)
+    {
+        return new HVector2D(a.x + b.x, a.y + b.y);
+    }
 
-    // }
+    public static HVector2D operator -(HVector2D a, HVector2D b)
+    {
+        return new HVector2D(a.x - b.x, a.y - b.y);
+    }
 
-    // public static HVector2D operator -(/*???*/)
-    // {
+    public static HVector2D operator *(HVector2D a, HVector2D b)
+    {
+        return new HVector2D(a.x * b.x, a.y * b.y);
+    }
 
-    // }
-
-    // public static HVector2D operator *(/*???*/)
-    // {
-
-    // }
-
-    // public static HVector2D operator /(/*???*/)
-    // {
-
-    // }
+    public static HVector2D operator /(HVector2D a, HVector2D b)
+    {
+        return new HVector2D(a.x / b.x, a.y / b.y);
+    }
 
     public float Magnitude()
     {      
         return Mathf.Sqrt(x * x + y * y);      
     }
 
-    // public void Normalize()
-    // {
-
-    // }
+    public void Normalize()
+    {
+        float mag = Magnitude();
+        x /= mag;
+        y /= mag;
+    }
 
     // public float DotProduct(/*???*/)
     // {
