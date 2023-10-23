@@ -116,7 +116,7 @@ public class VectorExercises : MonoBehaviour
         HVector2D a = new HVector2D(3, 5);
         HVector2D b = new HVector2D(-4, 2);
         HVector2D c = a + b;
-
+        
         // Your code here
         DebugExtension.DebugArrow(Vector3.zero, a.ToUnityVector3(), Color.red, 60f);
         DebugExtension.DebugArrow(Vector3.zero, b.ToUnityVector3(), Color.green, 60f);
@@ -160,25 +160,29 @@ public class VectorExercises : MonoBehaviour
         HVector2D a = new HVector2D(3, 5);
 
         HVector2D NormalizedA = new HVector2D(3, 5);
-        NormalizedA.Normalize();
+        NormalizedA.Normalize();                           // Magnitude = 3^2 + 5^2 = 34 = (Squared 34 = 5.83) [Normalize = 3/5.83, 5/5.83]
 
         DebugExtension.DebugArrow(Vector3.zero, a.ToUnityVector3(), Color.red, 60f);
         DebugExtension.DebugArrow(new Vector3(1, 0, 0), NormalizedA.ToUnityVector3(), Color.green, 60f);
+
+        float MagnitudeA = NormalizedA.Magnitude();
+        Debug.Log("Magnitude of a = " + MagnitudeA.ToString("F2"));
     }
 
     public void Projection()
     {
-        HVector2D a = new HVector2D(0, 0);
-        HVector2D b = new HVector2D(6, 0);
-        HVector2D c = new HVector2D(2, 2);
+        //HVector2D a = new HVector2D(0, 0);
+        //HVector2D b = new HVector2D(6, 0);
+        //HVector2D c = new HVector2D(2, 2);
 
-        //HVector2D v1 = b - a;
-        // Your code here
+        //HVector2D v1 = b - a; //6 - 0, 0 - 0      
 
-        //HVector2D proj = // Your code here
+        //v1.Normalize();
 
-        //DebugExtension.DebugArrow(a.ToUnityVector3(), b.ToUnityVector3(), Color.red, 60f);
-        //DebugExtension.DebugArrow(a.ToUnityVector3(), c.ToUnityVector3(), Color.yellow, 60f);
+        //HVector2D proj = v1 * (b.Magnitude() / c.Magnitude());
+
+        //DebugExtension.DebugArrow(a.ToUnityVector3(), b.ToUnityVector3(), Color.red, 60f);     //0, 0 to 6, 0   (v1)
+        //DebugExtension.DebugArrow(a.ToUnityVector3(), c.ToUnityVector3(), Color.yellow, 60f);  //0, 0 to 2, 2   (v2)
         //DebugExtension.DebugArrow(a.ToUnityVector3(), proj.ToUnityVector3(), Color.white, 60f);
     }
 }
