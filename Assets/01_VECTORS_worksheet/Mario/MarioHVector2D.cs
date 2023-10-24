@@ -36,8 +36,13 @@ public class MarioHVector2D : MonoBehaviour
 
         rb.MoveRotation(Quaternion.Euler(0, 0, angle));
 
-        DebugExtension.DebugArrow(transform.position, planet.position, Color.red);
+        DebugExtension.DebugArrow(transform.position, gravityDir.ToUnityVector3(), Color.red);
+        //DebugExtension.DebugArrow(planet.transform.position, transform.position, Color.red);
+
         DebugExtension.DebugArrow(transform.position, moveDir.ToUnityVector3(), Color.blue);
+
+
+
 
         //gravityDir = planet.position - transform.position;
         //moveDir = new Vector3(gravityDir.y, -gravityDir.x, 0f);

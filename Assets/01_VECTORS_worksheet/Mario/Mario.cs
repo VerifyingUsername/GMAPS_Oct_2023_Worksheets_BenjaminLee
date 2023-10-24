@@ -33,7 +33,7 @@ public class Mario : MonoBehaviour
 
         rb.MoveRotation(Quaternion.Euler(0, 0, angle));
 
-        DebugExtension.DebugArrow(transform.position, planet.position, Color.red);   //Gravity acts on the player object, The planet's position
+        DebugExtension.DebugArrow(transform.position, gravityDir, Color.red);   //Gravity acts on the player object, The planet's position
 
 
         DebugExtension.DebugArrow(transform.position, moveDir, Color.blue);
