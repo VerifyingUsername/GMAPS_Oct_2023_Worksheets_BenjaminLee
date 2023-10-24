@@ -7,19 +7,28 @@ public class Player : MonoBehaviour
     public bool IsCaptain = true;
     public Player OtherPlayer;
 
-    //float Magnitude(Vector3 vector)
-    //{
-    //    // Your code here
-    //}
+    float Magnitude(Vector3 vector)
+    {
+        // Your code here
+        return Mathf.Sqrt(vector.x * vector.x + vector.y * vector.y + vector.z * vector.z);
+    }
 
-    //Vector3 Normalise(Vector3 vector)
-    //{
-    //    // Your code here
-    //}
+    Vector3 Normalise(Vector3 vector)
+    {
+        // Your code here
+
+        float mag = Magnitude(vector);
+        vector.x /= mag;
+        vector.y /= mag;
+        vector.z /= mag;
+
+        return vector;
+    }
 
     //float Dot(Vector3 vectorA, Vector3 vectorB)
     //{
     //    // Your code here
+    //    return ();
     //}
 
     //float AngleToPlayer()

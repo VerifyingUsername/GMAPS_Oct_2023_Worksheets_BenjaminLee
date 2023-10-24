@@ -105,9 +105,7 @@ public class VectorExercises : MonoBehaviour
             // Your code here
             Vector2 endPt = new Vector2(Random.Range(-maxX, maxX), Random.Range(-maxY, maxY));
             DebugExtension.DebugArrow(new Vector3(0, 0, 0), new Vector3(endPt.x, endPt.y, Random.Range(-maxY, maxY)), Color.white, 60f); // Reuse -maxY, maxY for Z Axis
-
-
-            
+       
         }  
     }
 
@@ -171,18 +169,17 @@ public class VectorExercises : MonoBehaviour
 
     public void Projection()
     {
-        //HVector2D a = new HVector2D(0, 0);
-        //HVector2D b = new HVector2D(6, 0);
-        //HVector2D c = new HVector2D(2, 2);
+        HVector2D a = new HVector2D(0, 0);
+        HVector2D b = new HVector2D(6, 0);
+        HVector2D c = new HVector2D(2, 2);
 
-        //HVector2D v1 = b - a; //6 - 0, 0 - 0      
+        HVector2D v1 = b - a; //6 - 0, 0 - 0      
+        HVector2D v2 = c - a; //2 - 0, 2 - 0
 
-        //v1.Normalize();
+        HVector2D proj = v2.Projection(v1);
 
-        //HVector2D proj = v1 * (b.Magnitude() / c.Magnitude());
-
-        //DebugExtension.DebugArrow(a.ToUnityVector3(), b.ToUnityVector3(), Color.red, 60f);     //0, 0 to 6, 0   (v1)
-        //DebugExtension.DebugArrow(a.ToUnityVector3(), c.ToUnityVector3(), Color.yellow, 60f);  //0, 0 to 2, 2   (v2)
-        //DebugExtension.DebugArrow(a.ToUnityVector3(), proj.ToUnityVector3(), Color.white, 60f);
+        DebugExtension.DebugArrow(a.ToUnityVector3(), b.ToUnityVector3(), Color.red, 60f);     //0, 0 to 6, 0   (v1)
+        DebugExtension.DebugArrow(a.ToUnityVector3(), c.ToUnityVector3(), Color.yellow, 60f);  //0, 0 to 2, 2   (v2)
+        DebugExtension.DebugArrow(a.ToUnityVector3(), proj.ToUnityVector3(), Color.white, 60f);
     }
 }
