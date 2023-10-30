@@ -79,8 +79,20 @@ public class Player : MonoBehaviour
     {
         if (IsCaptain)
         {
-            //float angle = // Your code here
-            //Debug.Log(angle);
+            // 6b
+            Vector3 directionToOtherPlayer = OtherPlayer.transform.position - transform.position;
+            
+            DebugExtension.DebugArrow(transform.position, directionToOtherPlayer, Color.black);
+
+            // 6c
+            DebugExtension.DebugArrow(transform.position, transform.forward, Color.blue);
+
+
+            // 6d
+            float angle = Vector3.Angle(transform.forward, OtherPlayer.transform.position - transform.position);
+            float anglePlayer = Vector3.Angle(OtherPlayer.transform.position, transform.forward - transform.position);
+            Debug.Log("Angle towards captain and player: " + angle);
+            Debug.Log("Angle towards player and captain: " + anglePlayer);
         }
     }
 }
