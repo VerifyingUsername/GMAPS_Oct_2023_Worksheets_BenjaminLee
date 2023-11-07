@@ -11,9 +11,9 @@ public class TransformMesh : MonoBehaviour
     public Vector3[] vertices { get; private set; }
 
     private HMatrix2D transformMatrix = new HMatrix2D();
-    HMatrix2D toOriginMatrix = new HMatrix2D();
-    HMatrix2D fromOriginMatrix = new HMatrix2D();
-    HMatrix2D rotateMatrix = new HMatrix2D();
+    //HMatrix2D toOriginMatrix = new HMatrix2D();
+    //HMatrix2D fromOriginMatrix = new HMatrix2D();
+    //HMatrix2D rotateMatrix = new HMatrix2D();
 
     private MeshManager meshManager;
     HVector2D pos = new HVector2D();
@@ -24,7 +24,8 @@ public class TransformMesh : MonoBehaviour
         pos = new HVector2D(gameObject.transform.position.x, gameObject.transform.position.y);
 
         // Your code here
-        Translate(1, 1);
+        Translate(0, 0);
+        Rotate(90);
     }
 
 
@@ -38,16 +39,28 @@ public class TransformMesh : MonoBehaviour
         pos = transformMatrix * pos;
     }
 
-    //void Rotate(float angle)
-    //{
-    //    transformMatrix.setIdentity();
+    void Rotate(float angle)
+    {
+        // Origin, scale/rotate then move back to original point
 
-    //    // Your code here
+        HMatrix2D toOriginMatrix = new HMatrix2D();
+        HMatrix2D fromOriginMatrix = new HMatrix2D();
+        HMatrix2D rotateMatrix = new HMatrix2D();
 
-    //    transformMatrix = fromOriginMatrix * // Your code here;
+        toOriginMatrix.setTranslationMat(-transform.position.x, -transform.position.y);
+        fromOriginMatrix.setTranslationMat(transform.position.x, transform.position.y);
 
-    //    Transform();
-    //}
+        rotateMatrix.setRotationMat(angle);
+
+        transformMatrix.setIdentity();
+
+        // Your code here
+
+        // Your code here;
+        transformMatrix = fromOriginMatrix * rotateMatrix * toOriginMatrix;
+
+        Transform();
+    }
 
     private void Transform()
     {
