@@ -14,7 +14,7 @@ public class HMatrix2D : MonoBehaviour
     public HMatrix2D(float[,] multiArray)
     {
         // your code here
-        entries = new float[3, 3];
+        //entries = new float[3, 3];
 
         for (int i = 0; i < 3; i ++)
         {
@@ -27,8 +27,8 @@ public class HMatrix2D : MonoBehaviour
     }
 
     public HMatrix2D(float m00, float m01, float m02,
-             float m10, float m11, float m12,
-             float m20, float m21, float m22)
+                     float m10, float m11, float m12,
+                     float m20, float m21, float m22)
     {
         // First row
         // your code here
@@ -44,9 +44,9 @@ public class HMatrix2D : MonoBehaviour
 
         // Third row
         // your code here
-        entries[2, 0] = m10;
-        entries[2, 1] = m11;
-        entries[2, 2] = m12;
+        entries[2, 0] = m20;
+        entries[2, 1] = m21;
+        entries[2, 2] = m22;
     }
 
     public static HMatrix2D operator +(HMatrix2D left, HMatrix2D right)
@@ -78,8 +78,8 @@ public class HMatrix2D : MonoBehaviour
     public static HVector2D operator *(HMatrix2D left, HVector2D right)
     {
         // your code here
-        return new HVector2D(left.entries[0, 0] * right.x + left.entries[0, 1] * right.y,
-                             left.entries[1, 0] * right.x + left.entries[1, 1] * right.y);        
+        return new HVector2D(left.entries[0, 0] * right.x + left.entries[0, 1] * right.y + left.entries[0, 2] * right.h, 
+                             left.entries[1, 0] * right.x + left.entries[1, 1] * right.y + left.entries[1, 2] * right.h);
     }
 
     // Note that the second argument is a HMatrix2D object
@@ -113,8 +113,37 @@ public class HMatrix2D : MonoBehaviour
                 // (20 * 02 + 21 * 12 + 10 * 22)
             */
 
-            
-        // and so on for another 7 entries
+
+            // and so on for another 7 entries
+
+            //First row
+            left.entries[0, 0] * right.entries[0, 0] + left.entries[0, 1] * right.entries[1, 0] + left.entries[0, 2] * right.entries[2, 0],
+            left.entries[0, 0] * right.entries[0, 1] + left.entries[0, 1] * right.entries[1, 1] + left.entries[0, 2] * right.entries[2, 1],
+            left.entries[0, 0] * right.entries[0, 2] + left.entries[0, 1] * right.entries[1, 2] + left.entries[0, 2] * right.entries[2, 2],
+
+            //Second row
+            left.entries[1, 0] * right.entries[0, 0] + left.entries[1, 1] * right.entries[1, 0] + left.entries[1, 2] * right.entries[2, 0],
+            left.entries[1, 0] * right.entries[0, 1] + left.entries[1, 1] * right.entries[1, 1] + left.entries[1, 2] * right.entries[2, 1],
+            left.entries[1, 0] * right.entries[0, 2] + left.entries[1, 1] * right.entries[1, 2] + left.entries[1, 2] * right.entries[2, 2],
+
+            //Third row
+            left.entries[2, 0] * right.entries[0, 0] + left.entries[2, 1] * right.entries[1, 0] + left.entries[2, 2] * right.entries[2, 0],
+            left.entries[2, 0] * right.entries[0, 1] + left.entries[2, 1] * right.entries[1, 1] + left.entries[2, 2] * right.entries[2, 1],
+            left.entries[2, 0] * right.entries[0, 2] + left.entries[2, 1] * right.entries[1, 2] + left.entries[2, 2] * right.entries[2, 2]
+
+            // Wrong error
+
+            //left.entries[0, 0] * right.entries[0, 0] + left.entries[0, 1] * right.entries[1, 0] + left.entries[0, 2] * right.entries[2, 0],
+            //left.entries[0, 0] * right.entries[0, 1] + left.entries[0, 1] * right.entries[1, 1] + left.entries[0, 2] * right.entries[2, 1],
+            //left.entries[0, 0] * right.entries[0, 2] + left.entries[0, 1] * right.entries[1, 2] + left.entries[0, 2] * right.entries[2, 2],
+
+            //left.entries[1, 0] * right.entries[1, 0] + left.entries[1, 1] * right.entries[1, 0] + left.entries[1, 2] * right.entries[2, 0],
+            //left.entries[1, 0] * right.entries[1, 1] + left.entries[1, 1] * right.entries[1, 1] + left.entries[1, 2] * right.entries[2, 1],
+            //left.entries[1, 0] * right.entries[1, 2] + left.entries[1, 1] * right.entries[1, 2] + left.entries[1, 2] * right.entries[2, 2],
+
+            //left.entries[2, 0] * right.entries[2, 0] + left.entries[2, 1] * right.entries[1, 0] + left.entries[2, 2] * right.entries[2, 0],
+            //left.entries[2, 0] * right.entries[2, 1] + left.entries[2, 1] * right.entries[1, 1] + left.entries[2, 2] * right.entries[2, 1],
+            //left.entries[2, 0] * right.entries[2, 2] + left.entries[2, 1] * right.entries[1, 2] + left.entries[2, 2] * right.entries[2, 2]
         );
     }
 
