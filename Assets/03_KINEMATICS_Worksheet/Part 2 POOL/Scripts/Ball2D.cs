@@ -24,6 +24,7 @@ public class Ball2D : MonoBehaviour
 
     public bool IsCollidingWith(float x, float y)
     {
+        // uses the Util to check distance between the point and position
         float distance = Util.FindDistance(new HVector2D(x, y), Position);
         return distance <= Radius;
     }

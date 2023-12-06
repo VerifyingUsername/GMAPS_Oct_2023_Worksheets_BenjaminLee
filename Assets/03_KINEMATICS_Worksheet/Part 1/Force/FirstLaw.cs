@@ -9,10 +9,16 @@ public class FirstLaw : MonoBehaviour
 
     void Start()
     {
-        rb = GetComponent<Rigidbody>();// your code here;
-        rb.AddForce(force, ForceMode.Impulse);// your code here;
+        // your code here;
+        // Gets the rigibody component from the ball1 gameObject
+        rb = GetComponent<Rigidbody>();
+        
+        // your code here;
+        // is pushed by forcemode.impulse by the force
+        rb.AddForce(force, ForceMode.Impulse);
      }
 
+    //Updates ball1's position constantly
     void FixedUpdate()
     {
         Debug.Log(transform.position);

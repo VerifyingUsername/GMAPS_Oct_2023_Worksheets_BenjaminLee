@@ -21,8 +21,7 @@ public class JumpToHeight : MonoBehaviour
         float v = 0f;
         float a = Physics2D.gravity.y;
         
-
-
+        
         float u = Mathf.Sqrt(v * v - 2 * a * Height);
         rb.velocity = new Vector3(0f, u, 0f);
 
